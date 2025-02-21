@@ -10,12 +10,12 @@ def save(data, file_path):
 
 def numbering(data):
     for i in range(len(data)):
-        data[i] = f'{i+1} {data[i]}'
+        data[i] = f'{i+1}-{data[i]}'
     return data
 
 def unNumbering(data):
     new = []
     for line in data:
-        line = line.split(' ', 1)[1]
+        line = line.split('-', 1)[1]
         new.append(line)
     return new

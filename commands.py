@@ -1,7 +1,7 @@
 import utilities
 def add(name):
     data = utilities.load('tasks.txt')
-    data.append(name + " incomplete" +'\n')
+    data.append(name + "-incomplete" +'\n')
     utilities.save(data, 'tasks.txt')
 
 def delete(name):
@@ -27,7 +27,18 @@ def update(index, name):
     if i >= len(data):
         print("Invalid index")
         return
-    new = data[i].split(' ')
+    new = data[i].split('-')
     new[0] = name
-    data[i] = ' '.join(new)
+    data[i] = '-'.join(new)
+    utilities.save(data, 'tasks.txt')
+
+def mark(index, status):
+    i = int(index) - 1
+    data = utilities.load('tasks.txt')
+    if i >= len(data):
+        print("Invalid index")
+        return
+    new = data[i].split('-')
+    new[1] = status + '\n'
+    data[i] = '-'.join(new)
     utilities.save(data, 'tasks.txt')

@@ -6,7 +6,8 @@ cli = {
     "add": commands.add,
     "delete": commands.delete,
     "list": commands.list,
-    "update": commands.update
+    "update": commands.update,
+    "mark": commands.mark
 }
 
 cli[arguments[0]](*arguments[1:])
